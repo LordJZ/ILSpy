@@ -1046,7 +1046,7 @@ namespace ICSharpCode.Decompiler.ILAst
 				left.InferredType = left.ExpectedType = leftPreferred;
 				TypeReference rightPreferred = InferTypeForExpression(right, null);
 				// subtracting two pointers is not a pointer
-				if (rightPreferred != null && leftPreferred.FullName == rightPreferred.FullName)
+				if (rightPreferred is PointerType)
 					return typeSystem.IntPtr;
 				return leftPreferred;
 			}
